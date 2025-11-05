@@ -1,0 +1,176 @@
+.testimonial-section {
+    width: 100%;
+    background-image: url('/testimony_bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    color: white;
+    height: 728px;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.3);
+    }
+
+    .testimonial-content {
+        position: relative;
+        text-align: center;
+        padding: 56px 16px;
+        max-width: 900px;
+        margin: 0 auto;
+
+        h2 {
+            font-size: 48px;
+            margin-bottom: 48px;
+        }
+
+        .yelp-summary {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            justify-items: center;
+            gap: 40px;
+            margin-bottom: 48px;
+            text-decoration: none;
+            color: var(--color-white);
+
+            .yelp-logo-wrapper {
+                background: #c1272d;
+                border-radius: 10px;
+                padding: 12px;
+                width: 30px;
+                height: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .yelp-logo {
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+
+            .yelp-rating {
+                h3 {
+                    font-size: 50px;
+                }
+            }
+
+            .company_details {
+                justify-items:left ;
+                
+                .stars {
+                    margin: 8px 0;
+                    color: #ffcc00;
+    
+                    i {
+                        margin: 0 2px;
+                    }
+                }
+
+                p {
+                    font-size: 20px;
+                }
+            }
+        }
+
+        /* Review Card */
+        .review-card {
+            background: var(--color-white);
+            padding: 32px 0;
+            max-width: 300px;
+            margin: 0 auto;
+            color: var(--color-black);
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-items: center;
+
+            .review-header {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                
+                img {
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    margin-bottom: 25px;
+                }
+
+                .stars {
+                    color: #ffcc00;
+                    font-size: 18px;
+                    i {
+                        margin: 0 1px;
+                    }
+                }
+            }
+
+            .testimonial-review {
+                font-size: 18px;
+                line-height: 1.3;
+                padding: 24px;
+                display: flex;
+                flex-direction: column;
+            }
+
+            a {
+                font-size: 18px;
+                color: var(--color-red);
+                text-decoration: none;
+                padding-bottom: 24px;
+
+                p {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 4px;
+
+                    i {
+                        font-size: 12px;
+                    }
+                }
+            }
+
+            .review-footer {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                justify-content: center;
+
+                .yelp-logo-wrapper {
+                    background: #c1272d;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 8px;
+                    padding: 6px;
+                    width: 18px;
+                    height: 18px;
+
+                    .yelp-logo {
+                        width: 18px;
+                        height: 18px;
+                    }
+                }
+
+                p {
+                    font-size: 14px;
+                    font-weight: bolder;
+                    margin: 0;
+                    color: rgb(145, 145, 145)
+                }
+
+                span {
+                    font-size: 14px;
+                    color: rgb(145, 145, 145)
+                }
+            }
+        }
+    }
+}

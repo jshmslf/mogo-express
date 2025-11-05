@@ -1,0 +1,70 @@
+<section class="global-section">
+    <div class="global-container two-column">
+        <div class="column text-col">
+            <h3>How can we be of service?</h3>
+            <p>We love our customers, so feel free to reach out anytime.</p>
+            <h3>MoGo Express</h3>
+            <p>Monterey, CA 93940, USA</p>
+            <a href="tel:+18317601324"><span>831 760-1324</span></a>
+            <button class="form-btn">Drop us a line!</button>
+        </div>
+
+        <div class="column text-col">
+            <h3>Drop us a line!</h3>
+
+            <form (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" placeholder="Name" />
+                    <label for="name">Name</label>
+                </div>
+
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Email *" required />
+                    <label for="email">Email *</label>
+                </div>
+
+                <div class="form-group textarea-group">
+                    <textarea id="message" name="message" rows="5" placeholder="Message"></textarea>
+                </div>
+
+                <div class="form-group attachment-group">
+                    <!-- Hidden file input -->
+                    <input type="file" id="attachment" name="attachment" (change)="onFileSelected($event)" multiple
+                        hidden />
+
+                    <!-- Clickable label - removed inline style since it's already in CSS -->
+                    <label for="attachment" class="attachment-label">
+                        <i class="fa fa-paperclip"></i> Attachments
+                    </label>
+
+                    <div class="attachment-list" *ngIf="files.length > 0">
+                        <div class="file-item" *ngFor="let file of files; let i = index">
+                            <div class="file-info">
+                                <span>{{ file.name }}</span>
+                                <span>{{ (file.size / 1024) | number : '1.0-1' }} KB</span>
+                            </div>
+                            <span class="delete-file" (click)="removeFile(i)">×</span>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="recaptcha-text">
+                    This site is protected by reCAPTCHA and the Google
+                    <a href="#">Privacy</a> and
+                    <a href="#">Terms of Service</a> apply.
+                </p>
+
+                <div class="form-actions">
+                    <button type="submit" class="send-btn">Send</button>
+                    <button type="button" class="cancel-btn" (click)="onCancel()">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="column image-col">
+            <img src="/hero/hero3.png" alt="Innovative Service" />
+        </div>
+    </div>
+</section>

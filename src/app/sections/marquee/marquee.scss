@@ -1,0 +1,38 @@
+.marquee {
+    width: auto;
+    background: var(--color-secondary);
+    padding: 24px 0;
+    position: relative;
+    display: flex;
+    cursor: pointer;
+
+    a {
+        color: var(--color-black);
+    }
+
+    .marquee-content {
+        display: inline-block;
+        white-space: nowrap;
+        font-size: 41px;
+        letter-spacing: 3px;
+        animation: marquee 20s linear infinite;
+
+        span {
+            padding-right: 70px;
+        }
+    }
+
+    &:hover .marquee-content {
+        animation-play-state: paused;
+        color: #292929;
+    }
+
+    @keyframes marquee {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-33.33%);
+        }
+    }
+}

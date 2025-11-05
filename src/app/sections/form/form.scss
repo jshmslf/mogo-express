@@ -1,0 +1,210 @@
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: 24px;
+
+    .column {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .image-col {
+        img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block;
+            border-radius: 12px;
+        }
+    }
+
+    .text-col {
+        h3 {
+            font-size: 22px;
+            margin-bottom: 24px;
+        }
+
+        p {
+            font-size: 20px;
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        a {
+            text-decoration: none;
+            margin-bottom: 24px;
+            font-size: 20px;
+            color: var(--color-red);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--color-black);
+        }
+
+        .form-btn {
+            align-self: flex-start;
+            background: transparent;
+            border: 2px solid var(--color-black);
+            border-radius: 100px;
+            padding: 0 40px;
+            min-height: 56px;
+            color: var(--color-black);
+            font-family: 'Ubuntu', sans-serif;
+            font-weight: 400;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            margin-top: 24px;
+
+            &:hover {
+                background: var(--color-black);
+                color: var(--color-white);
+            }
+        }
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+
+        .form-group {
+            position: relative;
+            margin-bottom: 28px;
+
+            input,
+            textarea {
+                width: 100%;
+                font-size: 16px;
+                border: none;
+                border-bottom: 2px solid #ccc;
+                background: transparent;
+                padding: 10px 0;
+                outline: none;
+                transition: border-color 0.3s ease;
+                font-family: inherit;
+
+                &::placeholder {
+                    color: #999;
+                }
+
+                &:focus {
+                    border-color: var(--color-red);
+                }
+
+                &:focus+label,
+                &:not(:placeholder-shown)+label {
+                    top: -12px;
+                    font-size: 12px;
+                    color: var(--color-red);
+                }
+            }
+
+            label {
+                position: absolute;
+                left: 0;
+                top: 10px;
+                font-size: 16px;
+                color: #777;
+                pointer-events: none;
+                transition: all 0.2s ease;
+            }
+
+            &.textarea-group {
+                textarea {
+                    border-bottom: 2px solid #ccc;
+                    resize: vertical;
+                }
+
+                label {
+                    display: none;
+                }
+            }
+        }
+
+        /* Attachments */
+        .attachment-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            /* Make sure file input is truly hidden but functional */
+            input[type="file"] {
+                position: absolute;
+                width: 0.1px;
+                height: 0.1px;
+                opacity: 0;
+                overflow: hidden;
+                z-index: -1;
+            }
+
+            .attachment-label {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                cursor: pointer !important;
+                font-weight: 500;
+                color: var(--color-black);
+                transition: color 0.3s ease;
+                z-index: 10;
+                position: relative;
+                pointer-events: auto !important;
+                user-select: none;
+                width: fit-content;
+
+                i {
+                    font-size: 16px;
+                    transform: rotate(45deg);
+                    pointer-events: none;
+                }
+
+                &:hover {
+                    color: var(--color-red);
+                }
+            }
+
+            .attachment-list {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+
+                .file-item {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    background: #f7f7f7;
+                    padding: 8px 12px;
+                    border-radius: 6px;
+                    font-size: 14px;
+
+                    .file-info {
+                        display: flex;
+                        flex-direction: column;
+
+                        span:first-child {
+                            font-weight: 500;
+                        }
+
+                        span:last-child {
+                            font-size: 12px;
+                            color: #777;
+                        }
+                    }
+
+                    .delete-file {
+                        cursor: pointer;
+                        color: #888;
+                        font-weight: bold;
+                        transition: color 0.2s ease;
+
+                        &:hover {
+                            color: var(--color-red);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
