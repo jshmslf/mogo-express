@@ -9,7 +9,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./form.scss'],
 })
 export class FormComponent {
+  showForm = false;
   files: { name: string; size: number }[] = [];
+
+  toggleForm(state: boolean) {
+    this.showForm = state;
+  }
 
   onFileSelected(event: Event) {
     const input = event.target as HTMLInputElement;
@@ -31,5 +36,6 @@ export class FormComponent {
 
   onCancel() {
     console.log('Cancelled');
+    this.toggleForm(false);
   }
 }

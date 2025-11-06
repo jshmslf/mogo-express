@@ -15,7 +15,6 @@
             height: auto;
             object-fit: cover;
             display: block;
-            border-radius: 12px;
         }
     }
 
@@ -69,6 +68,7 @@
     form {
         display: flex;
         flex-direction: column;
+        padding-right: 96px;
 
         .form-group {
             position: relative;
@@ -130,7 +130,6 @@
             flex-direction: column;
             gap: 10px;
 
-            /* Make sure file input is truly hidden but functional */
             input[type="file"] {
                 position: absolute;
                 width: 0.1px;
@@ -141,11 +140,12 @@
             }
 
             .attachment-label {
+                margin-top: 10px;
                 display: inline-flex;
                 align-items: center;
                 gap: 8px;
                 cursor: pointer !important;
-                font-weight: 500;
+                font-weight: 400;
                 color: var(--color-black);
                 transition: color 0.3s ease;
                 z-index: 10;
@@ -154,9 +154,12 @@
                 user-select: none;
                 width: fit-content;
 
+                span {
+                    font-size: 18px;
+                }
+
                 i {
-                    font-size: 16px;
-                    transform: rotate(45deg);
+                    font-size: 20px;
                     pointer-events: none;
                 }
 
@@ -168,15 +171,15 @@
             .attachment-list {
                 display: flex;
                 flex-direction: column;
-                gap: 8px;
+                gap: 10px;
+                margin-bottom: 20px;
 
                 .file-item {
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                    background: #f7f7f7;
+                    background: #e6e6e6;
                     padding: 8px 12px;
-                    border-radius: 6px;
                     font-size: 14px;
 
                     .file-info {
@@ -194,8 +197,9 @@
                     }
 
                     .delete-file {
+                        font-size: 25px;
                         cursor: pointer;
-                        color: #888;
+                        color: var(--color-red);
                         font-weight: bold;
                         transition: color 0.2s ease;
 
@@ -204,6 +208,55 @@
                         }
                     }
                 }
+            }
+        }
+
+        .recaptcha-text {
+            text-align: center;
+            font-size: 0.9rem;
+            word-spacing: 0.1rem;
+            color: rgba(0, 0, 0, 0.6);
+            margin: auto 15px;
+            
+            a {
+                font-size: 0.9rem;
+            }
+        }
+        
+        .form-actions {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 24px;
+            
+            .send-btn {
+                align-self: center;
+                background: transparent;
+                border: 2px solid var(--color-black);
+                border-radius: 100px;
+                padding: 0 35px;
+                min-height: 50px;
+                color: var(--color-black);
+                font-family: 'Ubuntu', sans-serif;
+                font-weight: 400;
+                font-size: 1rem;
+                letter-spacing: 2px;
+                cursor: pointer;
+                transition: all 0.3s ease-in-out;
+            
+                &:hover {
+                    background: var(--color-black);
+                    color: var(--color-white);
+                }
+            }
+            .cancel-btn {
+                text-decoration: underline;
+                border: none;
+                background: transparent;
+                cursor: pointer;
+                color: var(--color-red);
+                font-size: 1rem;
             }
         }
     }
