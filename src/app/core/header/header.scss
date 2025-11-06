@@ -19,4 +19,28 @@
         width: auto;
         display: block;
     }
+
+    @media (max-width: 1200px) {
+        padding: 20px 40px;
+
+        .logo {
+            height: 45px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding: 16px 32px;
+
+        .logo {
+            height: 42px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        padding: 12px 24px;
+
+        .logo {
+            height: 38px;
+        }
+    }
 }

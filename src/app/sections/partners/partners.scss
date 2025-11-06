@@ -32,4 +32,52 @@
             }
         }
     }
+
+        @media (max-width: 1200px) {
+            margin: 0 10%;
+            .partners-container {
+                padding: 0 32px;
+
+                .partners-logo img {
+                    height: 45px;
+                }
+            }
+        }
+    
+        @media (max-width: 768px) {
+            margin: 0 6%;
+            padding: 80px 0;
+
+            .partners-container {
+                padding: 0 24px;
+
+                .partners-logo {
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    gap: 32px;
+
+                    img {
+                        height: 45px;
+                    }
+                }
+            }
+        }
+    
+        @media (max-width: 480px) {
+            margin: 0 4%;
+            padding: 64px 0;
+
+            .partners-container {
+                padding: 0 16px;
+
+                .partners-logo {
+                    flex-direction: column;
+                    gap: 24px;
+
+                    img {
+                        height: 40px;
+                    }
+                }
+            }
+        }
 }

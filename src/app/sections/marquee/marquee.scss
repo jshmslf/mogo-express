@@ -35,4 +35,42 @@
             transform: translateX(-33.33%);
         }
     }
+
+        @media (max-width: 1200px) {
+            .marquee-content {
+                font-size: 34px;
+                letter-spacing: 2px;
+
+                span {
+                    padding-right: 50px;
+                }
+
+                animation-duration: 22s;
+            }
+        }
+    
+        @media (max-width: 768px) {
+            font-size: 26px;
+            letter-spacing: 1.5px;
+
+            span {
+                padding-right: 40px;
+            }
+
+            animation-duration: 25s;
+        }
+    
+        @media (max-width: 480px) {
+            padding: 16px 0;
+
+            .marquee-content {
+                font-size: 20px;
+
+                span {
+                    padding-right: 30px;
+                }
+                
+                animation-duration: 20s;
+            }
+        }
 }

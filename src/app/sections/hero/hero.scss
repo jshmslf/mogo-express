@@ -95,4 +95,92 @@
     span.active {
         background: var(--color-white);
     }
+
+        @media (max-width: 1200px) {
+            .hero-content {
+                margin: 0 12%;
+                padding: 0 24px 60px;
+                transform: translateY(-60px);
+            }
+
+            h1 {
+                font-size: 3.2rem;
+            }
+
+            p {
+                font-size: 1.3rem;
+            }
+
+            .hero-btn {
+                font-size: 1.1rem;
+                min-height: 52px;
+                padding: 0 36px;
+            }
+        }
+    
+        @media (max-width: 768px) {
+            height: 85vh;
+
+            .hero-content {
+                margin: 0 8%;
+                padding: 0 20px 50px;
+                transform: translateY(-40px);
+                align-items: flex-end;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+                text-align: center;
+            }
+
+            p {
+                font-size: 1.1rem;
+                text-align: center;
+            }
+
+            .hero-btn {
+                font-size: 1rem;
+                min-height: 48px;
+                padding: 0 32px;
+                display: block;
+                margin: 0 auto;
+            }
+
+            .hero-indicators {
+                gap: 10px;
+                transform: translate(-20%, -15px);
+            }
+        }
+    
+        @media (max-width: 480px) {
+            height: 80vh;
+
+            .hero-content {
+                margin: 0 2%;
+                padding: 0 16px 40px;
+                transform: translateY(30px);
+                align-items: center;
+                text-align: center;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+                margin: 15px 0;
+            }
+
+            .hero-btn {
+                font-size: 0.95rem;
+                min-height: 44px;
+                padding: 0 28px;
+            }
+
+            .hero-indicators {
+                gap: 10px;
+                transform: translate(-20%, -15px);
+            }
+        }
 }
