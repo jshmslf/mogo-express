@@ -19,6 +19,10 @@ body {
     background-color: var(--color-white);
 }
 
+* {
+    box-sizing: border-box;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -54,6 +58,10 @@ p, span, li, a, button, input, textarea {
     }
 
     @media (max-width: 768px) {
+        html, body {
+            overflow-x: hidden;
+        }
+
         .global-container {
             margin: 0 5%;
             padding: 0 24px;

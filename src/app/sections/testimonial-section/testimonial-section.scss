@@ -214,12 +214,38 @@
                         font-size: 38px;
                     }
 
+                    .yelp-logo-wrapper {
+                        width: 40px;
+                        height: 40px;
+                        padding: 8px;
+
+                        .yelp-logo {
+                            width:  55px;
+                            height: 55px;
+                        }
+                    }
+
                     .company_details {
                         text-align: center;
 
                         p {
                             font-size: 17px;
                         }
+                    }
+                }
+
+                .review-card{
+                    .review-footer {
+                        .yelp-logo-wrapper {
+                                width: 20px;
+                                height: 20px;
+                                padding: 4px;
+                                border-radius: 5px;
+                                .yelp-logo {
+                                    width: 55px;
+                                    height: 55px;
+                                }
+                            }
                     }
                 }
             }
@@ -239,11 +265,18 @@
                     .company_details p {
                         font-size: 16px;
                     }
+
                 }
                 .review-card{
                     .testimonial-review{
                         font-size: 16px;
                         padding: 16px;
+                    }
+
+
+                    .yelp-logo-wrapper {
+                        width: 50px;
+                        height: 50px;
                     }
                 }
             }

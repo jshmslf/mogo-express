@@ -1,4 +1,5 @@
 .partners-section {
+    overflow-x: hidden;
     padding: 100px 0;
     margin: 0 15%;
 
@@ -58,6 +59,14 @@
 
                     img {
                         height: 45px;
+                    }
+
+                    img:nth-child(1) {
+                        height: 45px;
+                    }
+
+                    img:nth-child(2) {
+                        height: 40px;
                     }
                 }
             }
