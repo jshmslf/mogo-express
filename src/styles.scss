@@ -43,19 +43,19 @@ p, span, li, a, button, input, textarea {
     padding: 100px 0;
 
     .global-container {
-        width: auto;
-        margin: 0 15%;
-        padding: 0 56px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1vw;
     }
 
     // responsive adj
-    @media (max-width: 1200px) {
-        .global-container {
-            margin: 0 10%;
-            padding: 0 40px;
-        }
-        padding: 80px 0;
-    }
+    // @media (max-width: 1200px) {
+    //     .global-container {
+    //         margin: 0 10%;
+    //         padding: 0 40px;
+    //     }
+    //     padding: 80px 0;
+    // }
 
     @media (max-width: 768px) {
         html, body {
@@ -78,3 +78,43 @@ p, span, li, a, button, input, textarea {
         padding: 50px 0;
     }
 }
+
+// .global-section {
+//     padding: 100px 0;
+
+//     .global-container {
+//         width: auto;
+//         margin: 0 15%;
+//         padding: 0 56px;
+//     }
+
+//     // responsive adj
+//     @media (max-width: 1200px) {
+//         .global-container {
+//             margin: 0 10%;
+//             padding: 0 40px;
+//         }
+//         padding: 80px 0;
+//     }
+
+//     @media (max-width: 768px) {
+//         html, body {
+//             overflow-x: hidden;
+//         }
+
+//         .global-container {
+//             margin: 0 5%;
+//             padding: 0 24px;
+//         }
+//         padding: 60px 0;
+//     }
+
+//     @media (max-width: 480px) {
+//         .global-container {
+//             margin: 0 4%;
+//             padding: 0 16px;
+//         }
+
+//         padding: 50px 0;
+//     }
+// }
