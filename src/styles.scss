@@ -39,13 +39,18 @@ p, span, li, a, button, input, textarea {
     margin: 0;
 }
 
+a {
+    text-decoration: none;
+    color: rgb(255, 255, 255)
+}
+
 .global-section {
     padding: 100px 0;
 
     .global-container {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 0 1vw;
+        padding: 0 3vw;
     }
 
     // responsive adj
