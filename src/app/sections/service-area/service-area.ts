@@ -220,7 +220,8 @@ export class ServiceArea implements AfterViewInit, OnDestroy {
       return;
     }
 
-    const L = await import('leaflet');
+    const leafletModule: unknown = await import('leaflet');
+    const L: typeof Leaflet = (leafletModule as { default?: typeof Leaflet }).default ?? (leafletModule as typeof Leaflet);
 
     const map = L.map(this.mapContainer.nativeElement, {
       center: MONTEREY_PENINSULA_CENTER,
