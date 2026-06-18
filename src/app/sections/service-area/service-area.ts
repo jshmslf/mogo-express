@@ -334,6 +334,12 @@ export class ServiceArea implements AfterViewInit, OnDestroy {
       const activeLabelMarkers = new Map<number, Leaflet.Marker>();
       const MIN_LABEL_SIZE_PX = 24;
       const MAX_LABEL_SIZE_PX = 90;
+      // Parcels whose true on-screen footprint is smaller than this are skipped
+      // entirely rather than clamped up to MIN_LABEL_SIZE_PX — otherwise, when
+      // zoomed out, hundreds of tiny parcels all force-render same-size label
+      // boxes and bury each other in an unreadable mess. Only "big enough" zones
+      // get a number at this zoom; smaller ones appear once you zoom in further.
+      const LABEL_VISIBILITY_MIN_PX = 28;
 
       const renderVisibleLabels = () => {
         const zoom = map.getZoom();
@@ -359,12 +365,18 @@ export class ServiceArea implements AfterViewInit, OnDestroy {
             return;
           }
 
-          const text = showAddress ? entry.addressText : entry.numberText;
-
           const nw = map.latLngToContainerPoint(entry.bounds.getNorthWest());
           const se = map.latLngToContainerPoint(entry.bounds.getSouthEast());
-          const widthPx = Math.min(MAX_LABEL_SIZE_PX, Math.max(MIN_LABEL_SIZE_PX, Math.abs(se.x - nw.x)));
-          const heightPx = Math.min(MAX_LABEL_SIZE_PX, Math.max(MIN_LABEL_SIZE_PX, Math.abs(se.y - nw.y)));
+          const rawWidth = Math.abs(se.x - nw.x);
+          const rawHeight = Math.abs(se.y - nw.y);
+
+          if (Math.max(rawWidth, rawHeight) < LABEL_VISIBILITY_MIN_PX) {
+            return;
+          }
+
+          const text = showAddress ? entry.addressText : entry.numberText;
+          const widthPx = Math.min(MAX_LABEL_SIZE_PX, Math.max(MIN_LABEL_SIZE_PX, rawWidth));
+          const heightPx = Math.min(MAX_LABEL_SIZE_PX, Math.max(MIN_LABEL_SIZE_PX, rawHeight));
 
           kept.set(index, {
             marker: activeLabelMarkers.get(index),
