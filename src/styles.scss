@@ -123,3 +123,20 @@ a {
 //         padding: 50px 0;
 //     }
 // }
+
+// Leaflet popup chrome (Leaflet creates these elements itself, so component-scoped
+// styles can't reach them — this needs to be global, targeted via the popup's className).
+.parcel-popup {
+    .leaflet-popup-content-wrapper {
+        border-radius: 0;
+        padding: 0;
+    }
+
+    .leaflet-popup-content {
+        margin: 0;
+    }
+
+    .leaflet-popup-tip {
+        border-radius: 0;
+    }
+}

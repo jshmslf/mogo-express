@@ -1,0 +1,102 @@
+.service-area-section {
+    .service-area-container {
+        text-align: center;
+
+        h3 {
+            font-size: 35px;
+            margin-bottom: 24px;
+        }
+
+        p {
+            font-size: 20px;
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto 32px;
+
+            span {
+                font-weight: 700;
+            }
+        }
+    }
+
+    .service-area-map-wrapper {
+        position: relative;
+        margin: 0 3vw;
+    }
+
+    .service-area-map {
+        width: 100%;
+        height: 700px;
+        border: 0;
+        border-radius: 12px;
+        display: block;
+        overflow: hidden;
+        text-align: left;
+    }
+
+    .service-area-loading {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 12px;
+        font-size: 18px;
+        font-weight: 600;
+        z-index: 1000;
+    }
+
+    :host ::ng-deep .parcel-popup-table {
+        border-collapse: collapse;
+        font-size: 13px;
+
+        th, td {
+            text-align: left;
+            padding: 3px 8px;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            font-weight: 600;
+            color: #555;
+            white-space: nowrap;
+        }
+
+        tr:nth-child(even) {
+            background: #f5f5f5;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .service-area-container {
+            h3 {
+                font-size: 28px;
+            }
+            p {
+                font-size: 17px;
+                line-height: 1.7;
+            }
+        }
+
+        .service-area-map {
+            height: 480px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .service-area-container {
+            h3 {
+                font-size: 24px;
+            }
+            p {
+                font-size: 16px;
+                line-height: 1.6;
+            }
+        }
+
+        .service-area-map {
+            height: 360px;
+        }
+    }
+}

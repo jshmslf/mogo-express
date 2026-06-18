@@ -1,0 +1,12 @@
+<section class="global-section service-area-section">
+    <div class="global-container service-area-container">
+        <h3>Service Area</h3>
+        <p>Explore the <span>MoGo Express</span> delivery coverage across the Monterey Peninsula.</p>
+    </div>
+    <div class="service-area-map-wrapper">
+        <div #mapContainer class="service-area-map"></div>
+        @if (isLoading()) {
+            <div class="service-area-loading">Loading map data&hellip;</div>
+        }
+    </div>
+</section>
