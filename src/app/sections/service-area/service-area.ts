@@ -424,7 +424,11 @@ export class ServiceArea implements AfterViewInit, OnDestroy {
     if (!countResponse.ok) {
       throw new Error(`Parcel count query failed: ${countResponse.status}`);
     }
-    const { count } = (await countResponse.json()) as { count: number };
+    const countBody = (await countResponse.json()) as { count?: number; error?: unknown };
+    if (countBody.error || typeof countBody.count !== 'number') {
+      throw new Error(`Parcel count query returned an error: ${JSON.stringify(countBody.error ?? countBody)}`);
+    }
+    const count = countBody.count;
 
     const pageCount = Math.max(1, Math.ceil(count / PAGE_SIZE));
     const pageRequests = Array.from({ length: pageCount }, (_, i) => {
@@ -436,12 +440,24 @@ export class ServiceArea implements AfterViewInit, OnDestroy {
         if (!response.ok) {
           throw new Error(`Parcel query failed: ${response.status}`);
         }
-        return response.json() as Promise<FeatureCollection>;
+        return response.json() as Promise<FeatureCollection & { error?: unknown }>;
       });
     });
 
     const pages = await Promise.all(pageRequests);
-    const features: Feature[] = pages.flatMap((page) => page.features);
+
+    pages.forEach((page, i) => {
+      if (page.error || !Array.isArray(page.features)) {
+        throw new Error(`Parcel page ${i} returned an error: ${JSON.stringify(page.error ?? page)}`);
+      }
+    });
+
+    const features: Feature[] = pages
+      .flatMap((page) => page.features)
+      .filter((feature): feature is Feature => {
+        const geometry = feature?.geometry as { coordinates?: unknown } | undefined;
+        return Array.isArray(geometry?.coordinates);
+      });
 
     return { type: 'FeatureCollection', features };
   }
